@@ -1,0 +1,51 @@
+# --- Requested: root launcher/build scripts and shipped binaries ---
+/*.bat
+/vc_redist.x64.exe
+/WellnessCompanion-Setup.exe
+
+# --- Dependencies ---
+node_modules/
+
+# --- Build output ---
+windows/out/
+windows/dist/
+android/build/
+android/app/build/
+android/.gradle/
+installer/output/
+
+# --- Local machine config (contains local SDK paths) ---
+android/local.properties
+
+# --- Large local assets (AI model, ~2.5 GB; downloaded at install time) ---
+# Leading slash is load-bearing: a bare "model/" also matches the Android
+# source package android/.../data/model/, silently untracking product code.
+/model/
+
+# --- Runtime ---
+/logs/
+
+# --- Editor / OS ---
+.idea/
+.vscode/
+*.iml
+Thumbs.db
+Desktop.ini
+
+# --- Standalone ADB sideload bundle (superseded by the installer) ---
+/android_to_phone/
+
+# --- /public-repo run state (go-public pipeline) ---
+/public-repo/
+
+# --- Android release signing (never commit signing material) ---
+android/keystore.properties
+*.jks
+*.keystore
+
+# --- Installer build markers (regenerated every build_installer.bat run) ---
+installer/apk-signing.txt
+installer/app-version.txt
+
+# --- TypeScript incremental build info ---
+*.tsbuildinfo
